@@ -1,4 +1,4 @@
-﻿<UserControl x:Class="QuizGame.PLayQuizView"
+﻿<UserControl x:Class="QuizGame.Views.PLayQuizView"
              xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
@@ -34,5 +34,7 @@
 
         <TextBlock Grid.Row="3" Text="{Binding ScoreText}"
            FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0,10"/>
+
+       
     </Grid>
 </UserControl>

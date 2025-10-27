@@ -13,6 +13,12 @@
         public List<Question> Questions => _questions;
         public string Title => _title;
 
+
+        //added property
+        List<Question> questionAsked = new List<Question>();
+        public int TotalQuestions => Questions.Count;
+        public int AskedCount => questionAsked.Count;
+
         public Quiz(string title = "")
         {
             _title = title;
@@ -22,18 +28,34 @@
 
         }
 
+
+
         public Question GetRandomQuestion()
         {
+
             if (Questions.Count == 0)
             {
                 throw new InvalidOperationException("No questions available");
             }
-            int index = randomizer.Next(0, Questions.Count);
 
-            //add a new list and then check if the question has already been asked not to ask again.
-            return Questions[index];
-            //throw new NotImplementedException("A random Question needs to be returned here!");
+            if (questionAsked.Count == Questions.Count)
+            {
+                return null;
+            }
+
+            while (true)
+            {
+                int index = randomizer.Next(0, Questions.Count);
+                if (!questionAsked.Contains(Questions[index]))
+                {
+                    questionAsked.Add(Questions[index]);
+                    return Questions[index];
+                }
+            }
         }
+
+
+
 
         public void AddQuestion(string statement, int correctAnswer, params string[] answers)
         {
@@ -45,6 +67,11 @@
         public void RemoveQuestion(int index)
         {
             throw new NotImplementedException("Question at requested index need to be removed here!");
+        }
+
+        public void RestartQuiz()
+        {
+            questionAsked.Clear();
         }
     }
 }

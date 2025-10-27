@@ -4,7 +4,7 @@
     {
         public string Statement { get; } //set
         public string[] Answers { get; } //set
-        public int CorrectAnswer { get; } // set
+        public int CorrectAnswer; // set
 
         //params = don't have to write new all the time
         public Question(string statment, int correctanswer, params string[] answer)

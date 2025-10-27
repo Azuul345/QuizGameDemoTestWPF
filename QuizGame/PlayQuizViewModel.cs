@@ -16,6 +16,17 @@ namespace QuizGame
 
         public int TotalAnswered { get; set; }
 
+
+        //added properties
+        public List<WrongAnswerItem> WrongAnswers { get; } = new();
+        public int CorrectCount { get; set; }
+
+        public class WrongAnswerItem
+        {
+            public string Statement { get; set; }
+            public string UserAnswer { get; set; }
+            public string CorrectAnswer { get; set; }
+        }
         public string ScoreText
         {
             get
@@ -25,7 +36,7 @@ namespace QuizGame
                 {
                     percent = (int)((double)CorrectAnswers / TotalAnswered * 100);
                 }
-                return $"Correct Answers {CorrectAnswers} / {TotalAnswered} ({percent}) ";
+                return $"Correct Answers {CorrectAnswers} / {TotalAnswered} ({percent}) %";
             }
         }
 
@@ -63,6 +74,18 @@ namespace QuizGame
             {
                 CorrectAnswers++;
             }
+            else
+            {
+                //int correctIndex = FindCorrectIndex(CurrentQuestion);
+                // ADDED: store info about the wrong answer for results screen later
+                WrongAnswers.Add(new WrongAnswerItem
+                {
+                    Statement = CurrentQuestion.Statement,
+                    UserAnswer = CurrentQuestion.Answers[selectedIndex],
+                    CorrectAnswer = CurrentQuestion.Answers[CurrentQuestion.CorrectAnswer]
+                });
+            }
+
             //SelectAnswerIndex = -1;
             CurrentQuestion = Quiz.GetRandomQuestion();
             OnProperyChanged("CurrentQuestion");
