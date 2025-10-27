@@ -29,12 +29,10 @@
             <Button x:Name="Answer3Button" Content="{Binding CurrentQuestion.Answers[2]}"
                     Height="40" Margin="0,5" Click="AnswerButton_Click" Tag="2"/>
             
+
         </StackPanel>
 
         <TextBlock Grid.Row="3" Text="{Binding ScoreText}"
-                   FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0,10"/> 
-
-
-
+           FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0,10"/>
     </Grid>
 </UserControl>

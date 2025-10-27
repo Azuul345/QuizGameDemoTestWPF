@@ -29,6 +29,8 @@
                 throw new InvalidOperationException("No questions available");
             }
             int index = randomizer.Next(0, Questions.Count);
+
+            //add a new list and then check if the question has already been asked not to ask again.
             return Questions[index];
             //throw new NotImplementedException("A random Question needs to be returned here!");
         }
