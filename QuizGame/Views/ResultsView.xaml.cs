@@ -8,10 +8,10 @@ namespace QuizGame.Views
     /// Interaction logic for ResultsView.xaml
     /// </summary>
     /// 
-    public class ResultsViewModel // ADDED: simple VM just for this screen
+    public class ResultsViewModel // simple View Model just for this screen
     {
         public string ScoreText { get; set; }
-        //AI help to find this
+
         public List<WrongAnswerItem> WrongAnswers { get; set; }
     }
     public partial class ResultsView : UserControl
@@ -22,19 +22,33 @@ namespace QuizGame.Views
             InitializeComponent();
             _sourceVm = viewModel;
 
-            DataContext = new ResultsViewModel
-            {
-                ScoreText = viewModel.ScoreText,
-                WrongAnswers = viewModel.WrongAnswers
-            };
+            DataContext = viewModel;
+            //    new ResultsViewModel
+            //{
+            //    ScoreText = viewModel.ScoreText,
+            //    WrongAnswers = viewModel.WrongAnswers
+            //};
         }
 
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
+            var vm = (PlayQuizViewModel)DataContext;
+
+            vm.TotalAnswered = 0;
+            vm.CorrectAnswers = 0;
+            vm.WrongAnswers.Clear();
+            vm.Quiz.RestartQuiz();
+            vm.CurrentQuestion = vm.Quiz.GetRandomQuestion();
+            vm.OnProperyChanged("CurrentQuestion");
+            vm.OnProperyChanged("ScoreText");
+
+            // IMPORTANT: pass vm into the Play view
+            Window.GetWindow(this)!.Content = new PLayQuizView(vm);
+
             // Reset quiz state and start again
-            _sourceVm.Quiz.RestartQuiz();             // ADDED uses Quiz.RestartQuiz()
-            var newPlay = new PLayQuizView();         // start fresh
-            Window.GetWindow(this).Content = newPlay;
+            //_sourceVm.Quiz.RestartQuiz();             // ADDED uses Quiz.RestartQuiz()
+            //var newPlay = new PLayQuizView(vm);         // start fresh
+            //Window.GetWindow(this).Content = newPlay;
         }
 
         private void Menu_Click(object sender, RoutedEventArgs e)

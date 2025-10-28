@@ -1,5 +1,6 @@
 ﻿using QuizGame.DataModels;
 using System.ComponentModel;
+using System.IO;
 using System.Runtime.CompilerServices;
 
 namespace QuizGame
@@ -21,11 +22,13 @@ namespace QuizGame
         public List<WrongAnswerItem> WrongAnswers { get; } = new();
         public int CorrectCount { get; set; }
 
+
         public class WrongAnswerItem
         {
             public string Statement { get; set; }
             public string UserAnswer { get; set; }
             public string CorrectAnswer { get; set; }
+            public string? ImagePath { get; set; }
         }
         public string ScoreText
         {
@@ -40,22 +43,7 @@ namespace QuizGame
             }
         }
 
-        //public string ScoreText { get; set; }
 
-        public PlayQuizViewModel()
-        {
-            Quiz = new Quiz("Test");
-            Quiz.AddQuestion("Capital of Sweden", 0, "Stockholm", "Gbg", "mlm");
-            Quiz.AddQuestion("Color of skye", 2, "Red", "Yellow", "Blue");
-            Quiz.AddQuestion("Cat legs", 1, "5", "4", "3");
-
-            CurrentQuestion = Quiz.GetRandomQuestion();
-            SelectAnswerIndex = -1;
-            OnProperyChanged("CurrentQuestion");
-            //OnProperyChanged("ScoreText");
-
-
-        }
 
         public event PropertyChangedEventHandler PropertyChanged;
 
@@ -76,13 +64,14 @@ namespace QuizGame
             }
             else
             {
-                //int correctIndex = FindCorrectIndex(CurrentQuestion);
+
                 // ADDED: store info about the wrong answer for results screen later
                 WrongAnswers.Add(new WrongAnswerItem
                 {
                     Statement = CurrentQuestion.Statement,
                     UserAnswer = CurrentQuestion.Answers[selectedIndex],
-                    CorrectAnswer = CurrentQuestion.Answers[CurrentQuestion.CorrectAnswer]
+                    CorrectAnswer = CurrentQuestion.Answers[CurrentQuestion.CorrectAnswer],
+                    ImagePath = CurrentQuestion.ImagePath,
                 });
             }
 
@@ -90,6 +79,41 @@ namespace QuizGame
             CurrentQuestion = Quiz.GetRandomQuestion();
             OnProperyChanged("CurrentQuestion");
             OnProperyChanged("ScoreText");
+        }
+
+        public PlayQuizViewModel(QuizDto dto)
+        {
+            Quiz = new Quiz(dto.Title);
+
+            string baseName = new string(dto.Title.Where(c => !char.IsWhiteSpace(c)).ToArray());
+            string quizFolder = Path.Combine(QuizStorage.GetFolder(), baseName + "Img");
+            Directory.CreateDirectory(quizFolder);
+
+            foreach (var q in dto.Questions)
+            {
+                string? resolved = null;
+
+                if (!string.IsNullOrWhiteSpace(q.ImagePath))
+                {
+                    if (Path.IsPathRooted(q.ImagePath))
+                        resolved = q.ImagePath;
+                    else
+                        resolved = Path.Combine(quizFolder, q.ImagePath);
+                }
+                var runtimeQ = new Question(q.Statement, q.CorrectAnswer, q.Answers)
+                {
+                    ImagePath = resolved             // attach image
+
+                };
+                Quiz.Questions.Add(runtimeQ);
+
+
+                //Quiz.AddQuestion(q.Statement, q.CorrectAnswer, q.Answers);
+            }
+
+            CurrentQuestion = Quiz.GetRandomQuestion();
+            SelectAnswerIndex = -1;
+            OnProperyChanged("CurrentQuestion");
         }
 
     }

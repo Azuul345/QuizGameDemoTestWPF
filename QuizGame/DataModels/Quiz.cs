@@ -63,6 +63,13 @@
             Questions.Add(q);
 
         }
+        public void AddQuestionWithImage(string statement, int correctAnswer, string? imagePath, params string[] answers)
+        {
+            var q = new Question(statement, correctAnswer, answers);
+            q.ImagePath = imagePath;
+            Questions.Add(q);
+        }
+
 
         public void RemoveQuestion(int index)
         {

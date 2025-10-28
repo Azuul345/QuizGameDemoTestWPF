@@ -11,13 +11,18 @@ namespace QuizGame.Views
         public PlayQuizViewModel ViewModel { get; set; }
 
 
-        public PLayQuizView()
+        //public PLayQuizView()
+        //{
+        //    InitializeComponent();
+        //    ViewModel = new PlayQuizViewModel();
+        //    DataContext = ViewModel;
+        //}
+        public PLayQuizView(PlayQuizViewModel vm)
         {
             InitializeComponent();
-            ViewModel = new PlayQuizViewModel();
-            DataContext = ViewModel;
+            ViewModel = vm;
+            DataContext = vm;
         }
-
 
 
         public void AnswerButton_Click(object sender, RoutedEventArgs e)

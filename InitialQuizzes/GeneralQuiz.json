@@ -1,0 +1,22 @@
+{
+  "Title": "General Quiz",
+  "Questions": [
+    {
+      "Statement": "Capital of Sweden",
+      "Answers": ["Stockholm", "Gbg", "Mlm"],
+      "CorrectAnswer": 0,
+      "ImagePath": "sweden.jpg"
+    },
+    {
+      "Statement": "Color of sky",
+      "Answers": ["Red", "Yellow", "Blue"],
+      "CorrectAnswer": 2
+    },
+    {
+      "Statement": "Cat legs",
+      "Answers": ["5", "4", "3"],
+      "CorrectAnswer": 1,
+      "ImagePath": "cat.jpg"
+    }
+  ]
+}

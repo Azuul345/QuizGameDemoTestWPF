@@ -6,20 +6,43 @@
              xmlns:local="clr-namespace:QuizGame"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
+    <ScrollViewer VerticalScrollBarVisibility="Auto">
+    <Grid Margin="12">
         <Grid.RowDefinitions>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
             <RowDefinition Height="auto"/>
+            <RowDefinition Height="auto"/>
         </Grid.RowDefinitions>
+        <Image Grid.Row="1"
+               Source="{Binding CurrentQuestion.ImagePath}"
+               Height="180" Stretch="Uniform" Margin="0,0,0,8">
+            <Image.Style>
+                <Style TargetType="Image">
+                    <!-- default -->
+                    <Setter Property="Visibility" Value="Visible"/>
 
+                    <!-- all triggers go here -->
+                    <Style.Triggers>
+                        <!-- collapse when Source failed to load -->
+                        <Trigger Property="Source" Value="{x:Null}">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </Trigger>
+
+                        <!-- collapse when bound path is empty string -->
+                        <DataTrigger Binding="{Binding CurrentQuestion.ImagePath}" Value="">
+                            <Setter Property="Visibility" Value="Collapsed"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </Image.Style>
+        </Image>
         <TextBlock Text="{Binding Quiz.Title}" FontSize="26" FontWeight="Bold"
                    HorizontalAlignment="Center" Margin="0,0,0,10"/>
-
-        <TextBlock Grid.Row="1" Text="{Binding CurrentQuestion.Statement}"
+        <TextBlock Grid.Row="2" Text="{Binding CurrentQuestion.Statement}"
                    FontSize="18" TextWrapping="Wrap" HorizontalAlignment="Center" Margin="0,10"/>
-        <StackPanel Grid.Row="2" Margin="0, 20">
+        <StackPanel Grid.Row="3" Margin="0, 20">
             <Button x:Name="AnswerButton" Content="{Binding CurrentQuestion.Answers[0]}"
                     Height="40" Margin="0,5" Click="AnswerButton_Click" Tag="0"/>
 
@@ -32,9 +55,10 @@
 
         </StackPanel>
 
-        <TextBlock Grid.Row="3" Text="{Binding ScoreText}"
+        <TextBlock Grid.Row="4" Text="{Binding ScoreText}"
            FontWeight="Bold" FontSize="18" HorizontalAlignment="Center" Margin="0,10"/>
 
        
     </Grid>
+    </ScrollViewer>
 </UserControl>
