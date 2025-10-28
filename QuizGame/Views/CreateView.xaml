@@ -6,11 +6,89 @@
              xmlns:local="clr-namespace:QuizGame.Views"
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
-    <Grid>
-        <StackPanel Width="320" HorizontalAlignment="Center" VerticalAlignment="Center">
-            <TextBlock Text="Create quiz" FontSize="20" FontWeight="Bold" Margin="0,0,0,10"/>
-            <TextBlock Text="(content will be added in Step 4)" Margin="0,0,0,16"/>
-            <Button Content="Back to menu" Width="140" Height="32" Click="Back_Click"/>
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <!-- Quiz title -->
+        <StackPanel Grid.Row="0" Grid.ColumnSpan="2" Orientation="Horizontal" Margin="0,0,0,12">
+            <TextBlock Text="Quiz title:" VerticalAlignment="Center" Margin="0,0,8,0"/>
+            <TextBox x:Name="TitleInput" Width="280"/>
+        </StackPanel>
+
+        <!-- Question form -->
+        <StackPanel Grid.Row="1" Grid.Column="0" Margin="0,0,12,0">
+            <TextBlock Text="New question" FontWeight="Bold" Margin="0,0,0,6"/>
+
+            <TextBlock Text="Statement"/>
+            <TextBox x:Name="StatementInput" Height="60" TextWrapping="Wrap" />
+
+            <TextBlock Text="Answer 1" Margin="0,8,0,0"/>
+            <TextBox x:Name="Ans0Input"/>
+            <TextBlock Text="Answer 2" Margin="0,8,0,0"/>
+            <TextBox x:Name="Ans1Input"/>
+            <TextBlock Text="Answer 3" Margin="0,8,0,0"/>
+            <TextBox x:Name="Ans2Input"/>
+
+            <TextBlock Text="Correct answer (1-3)" Margin="0,8,0,0"/>
+            <ComboBox x:Name="CorrectIndexInput" Width="80" SelectionChanged="CorrectIndexInput_SelectionChanged">
+                <ComboBoxItem Content="1" IsSelected="True"/>
+                <ComboBoxItem Content="2"/>
+                <ComboBoxItem Content="3"/>
+            </ComboBox>
+
+            <TextBlock Text="Subject (optional)" Margin="0,8,0,0"/>
+            <TextBox x:Name="SubjectInput"/>
+
+            <TextBlock Text="Image URL (optional)" Margin="0,8,0,0"/>
+            <TextBox x:Name="ImageUrlInput"/>
+
+            <Button Content="Add question" Margin="0,12,0,0" Height="34"
+              Click="AddQuestion_Click"/>
+            <Button Content="Remove selected question" Margin="0,12,0,0" Height="34" Click="RemoveSelected_Click"/>
+        </StackPanel>
+
+        <!-- Current questions list -->
+        <GroupBox Grid.Row="1" Grid.Column="1" Header="Questions in this quiz">
+            <DockPanel LastChildFill="True">
+                <ListBox x:Name="QuestionsList" DockPanel.Dock="Top"
+                 ScrollViewer.VerticalScrollBarVisibility="Auto">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate>
+                            <Border Padding="6" Margin="0,0,0,6" BorderBrush="#DDD" BorderThickness="1">
+                                <StackPanel>
+                                    <TextBlock Text="{Binding Statement}" FontWeight="Bold" TextWrapping="Wrap"/>
+                                    <TextBlock Text="{Binding Answers[0]}"/>
+                                    <TextBlock Text="{Binding Answers[1]}"/>
+                                    <TextBlock Text="{Binding Answers[2]}"/>
+                                    <TextBlock Text="{Binding CorrectAnswer, StringFormat=Correct: {0}}"/>
+                                    <TextBlock Text="{Binding Subject, StringFormat=Subject: {0}}"/>
+                                    <TextBlock Text="{Binding ImagePath, StringFormat=Image: {0}}"/>
+                                </StackPanel>
+                            </Border>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+
+                <StackPanel Orientation="Horizontal" Margin="0,8,0,0">
+                    
+                    <TextBlock Text="  (select an item in the list to remove)" VerticalAlignment="Center"/>
+                </StackPanel>
+            </DockPanel>
+        </GroupBox>
+
+        <!-- Save / Back -->
+        <StackPanel Grid.Row="2" Grid.ColumnSpan="2" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,12,0,0">
+            <Button Content="Save quiz" Width="140" Height="36" Margin="0,0,8,0" Click="Save_Click"/>
+            
+            <Button Content="Back to menu" Width="140" Height="36" Click="Back_Click"/>
         </StackPanel>
     </Grid>
 </UserControl>

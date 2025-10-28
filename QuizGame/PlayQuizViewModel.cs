@@ -22,6 +22,9 @@ namespace QuizGame
         public List<WrongAnswerItem> WrongAnswers { get; } = new();
         public int CorrectCount { get; set; }
 
+        public Dictionary<string, int> WrongBySubject { get; } = new(StringComparer.OrdinalIgnoreCase);
+
+
 
         public class WrongAnswerItem
         {
@@ -72,7 +75,27 @@ namespace QuizGame
                     UserAnswer = CurrentQuestion.Answers[selectedIndex],
                     CorrectAnswer = CurrentQuestion.Answers[CurrentQuestion.CorrectAnswer],
                     ImagePath = CurrentQuestion.ImagePath,
+
                 });
+                string subj;
+
+                if (string.IsNullOrWhiteSpace(CurrentQuestion.Subject))
+                {
+                    subj = "Unspecified";
+                }
+                else
+                {
+                    subj = CurrentQuestion.Subject;
+                }
+
+                if (WrongBySubject.ContainsKey(subj))
+                {
+                    WrongBySubject[subj]++;
+                }
+                else
+                {
+                    WrongBySubject[subj] = 1;
+                }
             }
 
             //SelectAnswerIndex = -1;
@@ -86,29 +109,36 @@ namespace QuizGame
             Quiz = new Quiz(dto.Title);
 
             string baseName = new string(dto.Title.Where(c => !char.IsWhiteSpace(c)).ToArray());
-            string quizFolder = Path.Combine(QuizStorage.GetFolder(), baseName + "Img");
+            string quizFolder = Path.Combine(QuizStorage.QuizzFolder, baseName + "Img");
             Directory.CreateDirectory(quizFolder);
 
             foreach (var q in dto.Questions)
             {
                 string? resolved = null;
 
+
                 if (!string.IsNullOrWhiteSpace(q.ImagePath))
                 {
-                    if (Path.IsPathRooted(q.ImagePath))
-                        resolved = q.ImagePath;
-                    else
-                        resolved = Path.Combine(quizFolder, q.ImagePath);
-                }
-                var runtimeQ = new Question(q.Statement, q.CorrectAnswer, q.Answers)
-                {
-                    ImagePath = resolved             // attach image
+                    bool isUrl =
+                        q.ImagePath.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                        q.ImagePath.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
 
-                };
+                    if (isUrl)
+                    {
+                        // URL image → use directly
+                        resolved = q.ImagePath;
+                    }
+                    else
+                    {
+                        // Local image in quiz folder
+                        resolved = Path.Combine(quizFolder, q.ImagePath);
+                    }
+                }
+                var runtimeQ = new Question(q.Statement, q.CorrectAnswer, q.Answers);
+                runtimeQ.ImagePath = resolved;
+                runtimeQ.Subject = q.Subject;
                 Quiz.Questions.Add(runtimeQ);
 
-
-                //Quiz.AddQuestion(q.Statement, q.CorrectAnswer, q.Answers);
             }
 
             CurrentQuestion = Quiz.GetRandomQuestion();
@@ -118,3 +148,5 @@ namespace QuizGame
 
     }
 }
+
+

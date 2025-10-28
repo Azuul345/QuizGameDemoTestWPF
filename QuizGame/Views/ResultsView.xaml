@@ -24,6 +24,19 @@
         <!-- WRONG ANSWERS: fills available space and scrolls -->
         <Border Grid.Row="1" BorderBrush="#DDD" BorderThickness="1" Padding="8">
             <DockPanel LastChildFill="True">
+                <StackPanel DockPanel.Dock="Top" Margin="0,0,0,8">
+                    <TextBlock Text="Wrong by subject" FontWeight="Bold"/>
+                    <ItemsControl ItemsSource="{Binding WrongBySubject}">
+                        <ItemsControl.ItemTemplate>
+                            <DataTemplate>
+                                <StackPanel Orientation="Horizontal">
+                                    <TextBlock Text="{Binding Key}" Width="180"/>
+                                    <TextBlock Text="{Binding Value}"/>
+                                </StackPanel>
+                            </DataTemplate>
+                        </ItemsControl.ItemTemplate>
+                    </ItemsControl>
+                </StackPanel>
                 <TextBlock Text="Questions you got wrong"
                    FontWeight="Bold" Margin="0,0,0,8"
                    DockPanel.Dock="Top"/>

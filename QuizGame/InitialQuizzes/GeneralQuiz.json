@@ -5,18 +5,21 @@
       "Statement": "Capital of Sweden",
       "Answers": ["Stockholm", "Gbg", "Mlm"],
       "CorrectAnswer": 0,
-      "ImagePath": "sweden.jpg"
+      "ImagePath": "sweden.jpg",
+      "Subject": "Geo"
     },
     {
       "Statement": "Color of sky",
       "Answers": ["Red", "Yellow", "Blue"],
-      "CorrectAnswer": 2
+      "CorrectAnswer": 2,
+      "ImagePath": "https://images.squarespace-cdn.com/content/v1/5efb46cf46fb3d2f36091afa/228a666f-c0dd-4937-9380-9874fbb83443/Isle+of+Skye+Scotland.jpg"
     },
     {
       "Statement": "Cat legs",
       "Answers": ["5", "4", "3"],
       "CorrectAnswer": 1,
-      "ImagePath": "cat.jpg"
+      "ImagePath": "cat.jpg",
+      "Subject": "Animals"
     }
   ]
 }

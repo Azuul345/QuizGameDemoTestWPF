@@ -4,6 +4,7 @@
     {
         public string Title { get; set; } = "";
         public List<QuestionDto> Questions { get; set; } = new();
+        //public QuestionDto[] Questions { get; set; }
     }
 
     public class QuestionDto
@@ -12,6 +13,7 @@
         public string[] Answers { get; set; } = Array.Empty<string>();
         public int CorrectAnswer { get; set; }
         public string? ImagePath { get; set; }
+        public string Subject { get; set; }
     }
 
 }

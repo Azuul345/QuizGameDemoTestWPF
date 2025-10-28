@@ -4,12 +4,25 @@
     {
       "Statement": "2 + 2 = ?",
       "Answers": [ "3", "4", "5" ],
-      "CorrectAnswer": 1
+      "CorrectAnswer": 1,
+      "Subject": "Addition"
     },
     {
       "Statement": "5 × 3 = ?",
       "Answers": [ "12", "13", "15" ],
-      "CorrectAnswer": 2
+      "CorrectAnswer": 2,
+      "Subject": "Multiplication"
+    },
+    {
+      "Statement": "5 × 3 = ?",
+      "Answers": [ "12", "13", "15" ],
+      "CorrectAnswer": 2,
+      "Subject": "Multiplication"
+    },{
+      "Statement": "5 × 3 = ?",
+      "Answers": [ "12", "13", "15" ],
+      "CorrectAnswer": 2,
+      "Subject": "Multiplication"
     },
     {
       "Statement": "9 − 6 = ?",

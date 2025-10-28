@@ -73,7 +73,17 @@
 
         public void RemoveQuestion(int index)
         {
-            throw new NotImplementedException("Question at requested index need to be removed here!");
+            if (index < 0) return;
+            if (index >= _questions.Count) return;
+
+            var q = _questions[index];
+            _questions.RemoveAt(index);
+
+            if (questionAsked != null)
+            {
+                int askedIndex = questionAsked.IndexOf(q);
+                if (askedIndex >= 0) questionAsked.RemoveAt(askedIndex);
+            }
         }
 
         public void RestartQuiz()
