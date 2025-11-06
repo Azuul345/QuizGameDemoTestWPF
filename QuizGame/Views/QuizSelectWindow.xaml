@@ -11,11 +11,12 @@
             <TextBlock Text="Select a quiz" FontSize="24" FontWeight="Bold"
                Margin="0,0,0,12" TextAlignment="Center"/>
             
-            <StackPanel Orientation="Horizontal" Margin="0,0,0,8">
+            
                 <TextBlock Text="Subject:" VerticalAlignment="Center" Margin="0,0,8,0"/>
-                <ComboBox x:Name="SubjectFilter" Width="180"
-                          SelectionChanged="SubjectFilter_SelectionChanged"/>
-            </StackPanel>
+
+            <ListBox x:Name="SubjectFilter" Width="180" MaxHeight="140" ScrollViewer.VerticalScrollBarVisibility="Auto"
+                          SelectionMode="Multiple" Margin="0,0,0,8"/>
+            
             
             <ListBox x:Name="QuizList"
              Height="220"

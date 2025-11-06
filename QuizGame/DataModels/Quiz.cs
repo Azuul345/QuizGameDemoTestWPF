@@ -4,26 +4,22 @@
     {
         //public string Title { get; set; }
 
-        public Random randomizer { get; set; }
+        public Random randomizer = new();  // old   { get; set; }
 
 
-
-        private List<Question> _questions;
-        private string _title = string.Empty;
-        public List<Question> Questions => _questions;
-        public string Title => _title;
-
+        public string Title { get; set; } = "";
+        public List<Question> Questions { get; set; } = new();
 
         //added property
         List<Question> questionAsked = new List<Question>();
         public int TotalQuestions => Questions.Count;
         public int AskedCount => questionAsked.Count;
 
+
+
         public Quiz(string title = "")
         {
-            _title = title;
-
-            _questions = new List<Question>();
+            Title = title;
             randomizer = new Random();
 
         }
@@ -57,27 +53,23 @@
 
 
 
-        public void AddQuestion(string statement, int correctAnswer, params string[] answers)
+        public void AddQuestion(string statement, int correctAnswer, string? imagePath, params string[] answers)
         {
             Question q = new Question(statement, correctAnswer, answers);
+            if (!string.IsNullOrWhiteSpace(imagePath)) q.ImagePath = imagePath;
+
             Questions.Add(q);
 
-        }
-        public void AddQuestionWithImage(string statement, int correctAnswer, string? imagePath, params string[] answers)
-        {
-            var q = new Question(statement, correctAnswer, answers);
-            q.ImagePath = imagePath;
-            Questions.Add(q);
         }
 
 
         public void RemoveQuestion(int index)
         {
             if (index < 0) return;
-            if (index >= _questions.Count) return;
+            if (index >= Questions.Count) return;
 
-            var q = _questions[index];
-            _questions.RemoveAt(index);
+            var q = Questions[index];
+            Questions.RemoveAt(index);
 
             if (questionAsked != null)
             {

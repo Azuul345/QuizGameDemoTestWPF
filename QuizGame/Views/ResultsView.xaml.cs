@@ -14,6 +14,8 @@ namespace QuizGame.Views
 
         public List<WrongAnswerItem> WrongAnswers { get; set; }
     }
+
+
     public partial class ResultsView : UserControl
     {
         private PlayQuizViewModel _sourceVm; //Source View Model 
@@ -23,33 +25,22 @@ namespace QuizGame.Views
             _sourceVm = viewModel;
 
             DataContext = viewModel;
-            //    new ResultsViewModel
-            //{
-            //    ScoreText = viewModel.ScoreText,
-            //    WrongAnswers = viewModel.WrongAnswers
-            //};
+
         }
+
 
         private void PlayAgain_Click(object sender, RoutedEventArgs e)
         {
             var vm = (PlayQuizViewModel)DataContext;
 
-            vm.TotalAnswered = 0;
-            vm.CorrectAnswers = 0;
-            vm.WrongAnswers.Clear();
-            vm.Quiz.RestartQuiz();
-            vm.CurrentQuestion = vm.Quiz.GetRandomQuestion();
-            vm.OnProperyChanged("CurrentQuestion");
-            vm.OnProperyChanged("ScoreText");
+            vm.ResetRun();
 
-            // IMPORTANT: pass vm into the Play view
+            // go back to play with the same quiz but fresh state
             Window.GetWindow(this)!.Content = new PLayQuizView(vm);
-
-            // Reset quiz state and start again
-            //_sourceVm.Quiz.RestartQuiz();             // ADDED uses Quiz.RestartQuiz()
-            //var newPlay = new PLayQuizView(vm);         // start fresh
-            //Window.GetWindow(this).Content = newPlay;
         }
+
+
+
 
         private void Menu_Click(object sender, RoutedEventArgs e)
         {

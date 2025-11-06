@@ -5,6 +5,7 @@ using System.Runtime.CompilerServices;
 
 namespace QuizGame
 {
+    // It notifies the UI when properties change.
     public class PlayQuizViewModel : INotifyPropertyChanged
     {
         public Quiz Quiz { get; set; }
@@ -19,10 +20,12 @@ namespace QuizGame
 
 
         //added properties
-        public List<WrongAnswerItem> WrongAnswers { get; } = new();
+
+        public List<WrongAnswerItem> WrongAnswers { get; private set; } = new();
+        public Dictionary<string, int> WrongBySubject { get; private set; } = new(StringComparer.OrdinalIgnoreCase);
+
         public int CorrectCount { get; set; }
 
-        public Dictionary<string, int> WrongBySubject { get; } = new(StringComparer.OrdinalIgnoreCase);
 
 
 
@@ -33,6 +36,7 @@ namespace QuizGame
             public string CorrectAnswer { get; set; }
             public string? ImagePath { get; set; }
         }
+
         public string ScoreText
         {
             get
@@ -68,7 +72,7 @@ namespace QuizGame
             else
             {
 
-                // ADDED: store info about the wrong answer for results screen later
+
                 WrongAnswers.Add(new WrongAnswerItem
                 {
                     Statement = CurrentQuestion.Statement,
@@ -77,6 +81,7 @@ namespace QuizGame
                     ImagePath = CurrentQuestion.ImagePath,
 
                 });
+
                 string subj;
 
                 if (string.IsNullOrWhiteSpace(CurrentQuestion.Subject))
@@ -96,6 +101,8 @@ namespace QuizGame
                 {
                     WrongBySubject[subj] = 1;
                 }
+                OnProperyChanged(nameof(WrongBySubject));
+                OnProperyChanged(nameof(WrongAnswers));
             }
 
             //SelectAnswerIndex = -1;
@@ -104,47 +111,120 @@ namespace QuizGame
             OnProperyChanged("ScoreText");
         }
 
-        public PlayQuizViewModel(QuizDto dto)
+
+
+        public PlayQuizViewModel(Quiz quiz)
         {
-            Quiz = new Quiz(dto.Title);
-
-            string baseName = new string(dto.Title.Where(c => !char.IsWhiteSpace(c)).ToArray());
-            string quizFolder = Path.Combine(QuizStorage.QuizzFolder, baseName + "Img");
-            Directory.CreateDirectory(quizFolder);
-
-            foreach (var q in dto.Questions)
+            // 1. If it’s a mixed quiz  use it
+            if (quiz.Title.StartsWith("Mixed ", StringComparison.OrdinalIgnoreCase))
             {
-                string? resolved = null;
 
+                Quiz = quiz;
+            }
+            else
+            {
+                // 2. Normal quiz loaded from disk → rebuild like before
+                Quiz = new Quiz(quiz.Title);
 
-                if (!string.IsNullOrWhiteSpace(q.ImagePath))
+                string baseName = new string(quiz.Title.Where(c => !char.IsWhiteSpace(c)).ToArray());
+                string quizFolder = Path.Combine(QuizStorage.QuizzFolder, baseName + "Img");
+                Directory.CreateDirectory(quizFolder);
+
+                foreach (var q in quiz.Questions)
                 {
-                    bool isUrl =
-                        q.ImagePath.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
-                        q.ImagePath.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+                    string? resolved = null;
 
-                    if (isUrl)
+                    if (!string.IsNullOrWhiteSpace(q.ImagePath))
                     {
-                        // URL image → use directly
-                        resolved = q.ImagePath;
+                        bool isUrl =
+                            q.ImagePath.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                            q.ImagePath.StartsWith("https://", StringComparison.OrdinalIgnoreCase);
+
+                        if (isUrl)
+                        {
+                            resolved = q.ImagePath;
+                        }
+                        else
+                        {
+                            resolved = Path.Combine(quizFolder, q.ImagePath);
+                        }
                     }
-                    else
-                    {
-                        // Local image in quiz folder
-                        resolved = Path.Combine(quizFolder, q.ImagePath);
-                    }
+
+                    // IMPORTANT: use ToArray() here
+                    var runtimeQ = new Question(q.Statement, q.CorrectAnswer, q.Answers.ToArray());
+                    runtimeQ.ImagePath = resolved;
+                    runtimeQ.Subject = q.Subject;
+                    Quiz.Questions.Add(runtimeQ);
                 }
-                var runtimeQ = new Question(q.Statement, q.CorrectAnswer, q.Answers);
-                runtimeQ.ImagePath = resolved;
-                runtimeQ.Subject = q.Subject;
-                Quiz.Questions.Add(runtimeQ);
-
             }
 
+            // 3. ALWAYS start a fresh run for this VM
+            WrongAnswers.Clear();
+            WrongBySubject.Clear();
+            TotalAnswered = 0;
+            CorrectAnswers = 0;
+
+            // 4. pick first question
             CurrentQuestion = Quiz.GetRandomQuestion();
             SelectAnswerIndex = -1;
-            OnProperyChanged("CurrentQuestion");
+
+            // 5. notify UI
+            OnProperyChanged(nameof(CurrentQuestion));
+            OnProperyChanged(nameof(ScoreText));
         }
+
+
+        public void ResetRun()
+        {
+            // new instances → WPF must rebind
+            WrongAnswers = new List<WrongAnswerItem>();
+            WrongBySubject = new Dictionary<string, int>(StringComparer.OrdinalIgnoreCase);
+
+            TotalAnswered = 0;
+            CorrectAnswers = 0;
+
+            Quiz.RestartQuiz();
+            CurrentQuestion = Quiz.GetRandomQuestion();
+            SelectAnswerIndex = -1;
+
+            OnProperyChanged(nameof(WrongAnswers));
+            OnProperyChanged(nameof(WrongBySubject));
+            OnProperyChanged(nameof(CurrentQuestion));
+            OnProperyChanged(nameof(ScoreText));
+        }
+
+
+        public static string? FindOriginalImagePath(Question q)
+        {
+            // Try each quiz folder under Quizzs\*Img
+            // 1. no question or no image → nothing to do
+            if (q == null || string.IsNullOrWhiteSpace(q.ImagePath))
+                return null;
+
+            // 2. URL → use as-is
+            if (q.ImagePath.StartsWith("http://", StringComparison.OrdinalIgnoreCase) ||
+                q.ImagePath.StartsWith("https://", StringComparison.OrdinalIgnoreCase))
+                return q.ImagePath;
+
+            // 3. look under ...\Quizzs for any *Img folder
+            string quizzRoot = QuizStorage.QuizzFolder;
+            if (!Directory.Exists(quizzRoot))
+                return null;
+
+            foreach (var folder in Directory.EnumerateDirectories(quizzRoot, "*Img", SearchOption.TopDirectoryOnly))
+            {
+                string candidate = Path.Combine(folder, q.ImagePath);
+                if (File.Exists(candidate))
+                    return candidate;
+            }
+
+            // 4. not found anywhere
+            return null;
+        }
+
+
+
+
 
     }
 }

@@ -9,7 +9,7 @@ namespace QuizGame.Views
     /// </summary>
     public partial class CreateView : UserControl
     {
-        private readonly List<QuestionDto> _buffer = new();
+        private readonly List<Question> _buffer = new();
         public CreateView()
         {
             InitializeComponent();
@@ -64,7 +64,6 @@ namespace QuizGame.Views
                 return;
             }
 
-            //int correct = int.Parse(((ComboBoxItem)CorrectIndexInput.SelectedItem).Content.ToString());
             var item = (ComboBoxItem)CorrectIndexInput.SelectedItem;
             int correct;
             if (!int.TryParse(item.Content.ToString(), out correct))
@@ -106,13 +105,13 @@ namespace QuizGame.Views
             correct = correct - 1;
 
             // add to buffer
-            _buffer.Add(new QuestionDto
+            _buffer.Add(new Question
             {
                 Statement = statement,
                 Answers = new[] { a0, a1, a2 },
                 CorrectAnswer = correct,
                 Subject = subject,
-                ImagePath = imageUrl     // URL allowed. For local images, you can paste a filename.
+                ImagePath = imageUrl     // URL allowed. For local images, paste a filename.
             });
 
             QuestionsList.Items.Refresh();
@@ -130,7 +129,7 @@ namespace QuizGame.Views
 
         private void RemoveSelected_Click(object sender, RoutedEventArgs e)
         {
-            var q = QuestionsList.SelectedItem as QuestionDto;
+            var q = QuestionsList.SelectedItem as Question;
             if (q != null)
             {
                 _buffer.Remove(q);
@@ -162,8 +161,8 @@ namespace QuizGame.Views
                 return;
             }
 
-            // build dto and save
-            var quizDto = new QuizDto
+            // build data transfer object and save
+            var quizDto = new Quiz
             {
                 Title = title,
                 Questions = _buffer.ToList()
@@ -185,6 +184,7 @@ namespace QuizGame.Views
             Window.GetWindow(this).Content = new MenuView();
         }
 
+        // Dark Magic going on here Looks empty but when selecting the right answer it works. leaving it as is. 
         private void CorrectIndexInput_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
 

@@ -1,0 +1,473 @@
+
+{
+  "Title": "Riichi Mahjong Strategy",
+  "Questions": [
+    {
+      "Statement": "Early game, which tile is usually safest to discard?",
+      "Answers": [
+        "Isolated honor not matching round/seat",
+        "Middle 5 tile",
+        "Live dora tile"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong early discard isolated honor",
+      "Subject": "Opening"
+    },
+    {
+      "Statement": "You have 1-2-4 in a suit. What is usually the best improvement tile?",
+      "Answers": [
+        
+        "1 of that suit",
+        "3 of that suit",
+        "9 of that suit"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong 1-2-4 shape improvement",
+      "Subject": "Tile Efficiency"
+    },
+    {
+      "Statement": "Why are two-sided waits (like 3-4 waiting 2 or 5) preferred?",
+      "Answers": [
+        
+        "They give more fu",
+        "They reveal dora",
+        "They have more winning tiles"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong ryanmen two sided wait",
+      "Subject": "Tile Efficiency"
+    },
+    {
+      "Statement": "You can call Pon to get to tenpai, but your hand will have no yaku. What should you do?",
+      "Answers": [
+        "Do not call; keep yaku potential",
+        "Call; win with no yaku",
+        "Discard your pair"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong no yaku open hand trap",
+      "Subject": "Yaku Awareness"
+    },
+    {
+      "Statement": "What is the main risk of calling too many tiles early?",
+      "Answers": [
+        
+        "You cannot draw dora",
+        "You must discard all honors",
+        "You lose access to closed-hand yaku like Riichi and Pinfu"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong open hand limitation",
+      "Subject": "Yaku Awareness"
+    },
+    {
+      "Statement": "You see three 5-bamboo already discarded. Should you wait on 4-5-6 bamboo shape?",
+      "Answers": [
+        
+        "Yes, always wait on 5",
+        "No, the wait is weak because key tiles are dead",
+        "Yes, because dora might appear"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong dead tiles kabe reading",
+      "Subject": "Reading"
+    },
+    {
+      "Statement": "When another player has declared Riichi, what is usually your first priority?",
+      "Answers": [
+        
+        "Push: discard dora",
+        "Call a kan",
+        "Defense: discard safest tiles"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong defending vs riichi",
+      "Subject": "Defense"
+    },
+    {
+      "Statement": "Which tile is usually safer against a riichi hand?",
+      "Answers": [
+        "Tile the riichi player has already discarded",
+        "Live terminal in middle game",
+        "Unseen dora tile"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong safe tile from discard",
+      "Subject": "Defense"
+    },
+    {
+      "Statement": "Why is discarding dora dangerous?",
+      "Answers": [
+        
+        "It ends the round",
+        "It often improves opponent’s score",
+        "It breaks your tenpai"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong dora discard danger",
+      "Subject": "Risk Management"
+    },
+    {
+      "Statement": "You have a perfect pinfu shape and are 1-shanten. What is often the best plan?",
+      "Answers": [
+        
+        "Call chi to get faster tenpai but open",
+        "Discard your pair",
+        "Stay closed and aim for riichi"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong pinfu shape closed hand",
+      "Subject": "Hand Development"
+    },
+    {
+      "Statement": "What is 'push or fold' decision?",
+      "Answers": [
+        "Choosing to attack for win or switch to defense based on risk",
+        "Choosing to call chi or pon",
+        "Choosing to change seat wind"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong push fold strategy",
+      "Subject": "Decision Making"
+    },
+    {
+      "Statement": "When is it good to call chi on a side wait?",
+      "Answers": [
+        
+        "When you need mangan",
+        "When you need speed more than points",
+        "When you need a closed-only yaku"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong calling chi for speed",
+      "Subject": "Speed vs Value"
+    },
+    {
+      "Statement": "You have many tiles of one suit and some honors. What strategy is this?",
+      "Answers": [
+        
+        "Pinfu direction",
+        "Chiitoitsu direction",
+        "Honitsu (half flush) direction"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong honitsu half flush hand",
+      "Subject": "Hand Direction"
+    },
+    {
+      "Statement": "Why do players avoid calling in a potential Tanyao hand?",
+      "Answers": [
+        "Because calling a 1/9/honor ruins Tanyao",
+        "Because calling makes them dealer",
+        "Because calling ends dora"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong tanyao all simples",
+      "Subject": "Yaku Planning"
+    },
+    {
+      "Statement": "You are dealer (East). When is it correct to push a bit harder?",
+      "Answers": [
+        
+        "Because you must show all your tiles",
+        "Because dealer wins are more valuable and continuation is good",
+        "Because you cannot riichi otherwise"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong dealer east attack",
+      "Subject": "Seat Advantage"
+    },
+    {
+      "Statement": "What is the main danger of calling a Kan mid-hand?",
+      "Answers": [
+        
+        "It forces you to discard dora",
+        "It ends your turn forever",
+        "It gives everyone a new dora and may help opponents"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong kan adds dora risk",
+      "Subject": "Risk Management"
+    },
+    {
+      "Statement": "You see a player discard 5m, 2m, 8m late. What does that often mean?",
+      "Answers": [
+        "They are folding",
+        "They are chasing ittsu",
+        "They are in tenpai"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong folding safe discards",
+      "Subject": "Reading"
+    },
+    {
+      "Statement": "Why is keeping shapes like 3-4-5-5 good?",
+      "Answers": [
+       
+        "It gives more fu",
+         "It can form multiple waits (3-4-5 or 4-5-5 → pon/pair)",
+        "It reveals dora"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong flexible shape 3455",
+      "Subject": "Tile Efficiency"
+    },
+    {
+      "Statement": "You are in tenpai but for a bad single wait. What is sometimes better?",
+      "Answers": [
+        
+        "Declare riichi anyway",
+        "Call pon on any tile",
+        "Change shape to improve wait even if it delays win"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong improving bad wait",
+      "Subject": "Wait Quality"
+    },
+    {
+      "Statement": "What is 'betaori'?",
+      "Answers": [
+        "Full defense: stop attacking and discard only safe tiles",
+        "Full attack: discard all safe tiles",
+        "Calling to open your hand"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong betaori full defense",
+      "Subject": "Defense"
+    },
+    {
+      "Statement": "When is it good to riichi on a not-perfect wait?",
+      "Answers": [
+       
+        "When everyone is riichi already",
+         "When it’s early and riichi pressure is high",
+        "When you have no dora at all"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong early riichi pressure",
+      "Subject": "Aggression"
+    },
+    {
+      "Statement": "Why is calling on honor tiles sometimes slow?",
+      "Answers": [
+        
+        "Because honors cannot be discarded",
+        "Because honors remove dora",
+        "Because honors cannot form sequences"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong honor pon slow hand",
+      "Subject": "Speed vs Value"
+    },
+    {
+      "Statement": "Your hand is one suit + honors, you already called twice. What is your likely plan?",
+      "Answers": [
+        "Finish Honitsu (half flush) quickly",
+        "Switch to pinfu",
+        "Wait for iipeikou"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong honitsu open hand",
+      "Subject": "Hand Direction"
+    },
+    {
+      "Statement": "Why is it good to track which 1s and 9s are gone?",
+      "Answers": [
+        
+        "Because they give more fu",
+        "Because they affect suji/safety and ittsu chances",
+        "Because they let you riichi without sticks"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong terminal tracking",
+      "Subject": "Reading"
+    },
+    {
+      "Statement": "You have a lot of dora but a bad wait. What is often correct?",
+      "Answers": [
+        
+        "Fold, because wait is bad",
+        "Call kan on everything",
+        "Push, because dora will make the hand big"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong dora rich hand push",
+      "Subject": "Value vs Risk"
+    },
+    {
+      "Statement": "Opponent riichi, you draw an unsafe dora. Best default?",
+      "Answers": [
+        "Fold and keep points",
+        "Push to test their wait",
+        "Declare kan"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong defend against riichi unsafe dora",
+      "Subject": "Defense"
+    },
+    {
+      "Statement": "Why is keeping 2-3-4 and 2-3 in another suit good?",
+      "Answers": [
+        
+        "You can aim for Chiitoi",
+        "You can aim for Sanshoku (same sequence in 3 suits)",
+        "You can aim for Toitoi"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong sanshoku opportunity 234",
+      "Subject": "Value Growth"
+    },
+    {
+      "Statement": "You are dealer, another player riichi, your hand is far. What is safest?",
+      "Answers": [
+        
+        "Push and hope for tsumo",
+        "Call chi to open more",
+        "Fold to avoid big hit"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong folding as dealer vs riichi",
+      "Subject": "Defense"
+    },
+    {
+      "Statement": "What is 'safety first' logic?",
+      "Answers": [
+        "Do not pay big hands if your hand is weak",
+        "Always riichi",
+        "Always call pon"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong safety first defense",
+      "Subject": "Risk Management"
+    },
+    {
+      "Statement": "Why do players sometimes NOT riichi even when closed tenpai?",
+      "Answers": [
+        
+        "Because riichi removes dora",
+        "To hide their hand and ron on safer tiles",
+        "Because riichi ends their dealer turn"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong dama tenpai hidden hand",
+      "Subject": "Tempo Control"
+    },
+    {
+      "Statement": "You have 5-6-7 and 6-7-8 in the same suit. What is the strategic option?",
+      "Answers": [
+       
+        "Break one to get more fu",
+        "Discard both and keep honors",
+         "Keep both to maintain flexible waits"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong overlapping sequences 567 678",
+      "Subject": "Tile Efficiency"
+    },
+    {
+      "Statement": "Late game, why discard honors over suji tiles?",
+      "Answers": [
+        "Honors can still be waits if few shown, suji is safer",
+        "Honors always safe",
+        "Suji is always unsafe"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong late game safe suji",
+      "Subject": "Defense"
+    },
+    {
+      "Statement": "You can call pon to win now for 1 han, or stay closed for riichi + pinfu. When pick 1 han?",
+      "Answers": [
+        
+        "Always pick 1 han",
+        "When you must win this hand (e.g. to survive/oya turn)",
+        "Never pick 1 han"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong small win vs bigger win decision",
+      "Subject": "Contextual Play"
+    },
+    {
+      "Statement": "Why is keeping your dealer turn important?",
+      "Answers": [
+        
+        "Dealer must discard first",
+        "Dealer gets free kan",
+        "Dealer wins are more valuable and dealer continues"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong dealer continuation renchan",
+      "Subject": "Seat Advantage"
+    },
+    {
+      "Statement": "What is 'Shanpon' wait?",
+      "Answers": [
+        "Waiting on two different pairs to make a triplet",
+        "Waiting on edge 7",
+        "Waiting on middle 5"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong shanpon pair wait",
+      "Subject": "Wait Types"
+    },
+    {
+      "Statement": "What is 'Kanchan' wait?",
+      "Answers": [
+        
+        "Two-sided wait",
+        "Inside wait like 3-5 waiting 4",
+        "Single tile wait"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong kanchan inside wait",
+      "Subject": "Wait Types"
+    },
+    {
+      "Statement": "What is 'Penchan' wait?",
+      "Answers": [
+        
+        "Two-sided wait",
+        "Pair wait",
+        "Edge wait like 1-2 waiting 3 or 8-9 waiting 7"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong penchan edge wait",
+      "Subject": "Wait Types"
+    },
+    {
+      "Statement": "Which wait is usually best to riichi on?",
+      "Answers": [
+        "Two-sided (ryanmen)",
+        "Penchan",
+        "Kanchan"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong ryanmen riichi",
+      "Subject": "Wait Quality"
+    },
+    {
+      "Statement": "You see many of a tile discarded. What does that do to your wait?",
+      "Answers": [
+        
+        "It strengthens it because everyone has it",
+        "It weakens it because there are fewer outs",
+        "It gives you dora"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong dead wait reading",
+      "Subject": "Reading"
+    },
+    {
+      "Statement": "Why is it bad to open with no yaku plan?",
+      "Answers": [
+        
+        "You cannot discard anymore",
+        "You cannot draw dora",
+        "You might reach tenpai and still be unable to win"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong no yaku open hand trap",
+      "Subject": "Yaku Awareness"
+    }
+  ]
+}

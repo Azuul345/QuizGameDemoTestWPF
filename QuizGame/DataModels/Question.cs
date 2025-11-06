@@ -2,9 +2,9 @@
 {
     public class Question
     {
-        public string Statement { get; } //set
-        public string[] Answers { get; } //set
-        public int CorrectAnswer; // set
+        public string Statement { get; set; } = "";  // old { get; }
+        public string[] Answers { get; set; } = Array.Empty<string>(); // old { get; } 
+        public int CorrectAnswer { get; set; } // added { get; set; }
 
         public string? ImagePath { get; set; }
         public string? Subject { get; set; }
@@ -17,6 +17,8 @@
             CorrectAnswer = correctanswer;
 
         }
+
+        public Question() { }
         public bool isCorrect(int selectIndex)
         {
             return selectIndex == CorrectAnswer;

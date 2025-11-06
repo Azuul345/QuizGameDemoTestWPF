@@ -1,0 +1,519 @@
+
+{
+  "Title": "Riichi Mahjong Yakus and Han",
+  "Questions": [
+    {
+      "Statement": "What is the han value of Riichi?",
+      "Answers": [
+        "1 han",
+        "2 han",
+        "0 han unless open"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong riichi stick",
+      "Subject": "Basic Yaku"
+    },
+    {
+      "Statement": "What is the han value of Tanyao (All Simples) when open?",
+      "Answers": [
+        
+        "2 han",
+        "1 han",
+        "Only closed"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong tanyao all simples",
+      "Subject": "Basic Yaku"
+    },
+    {
+      "Statement": "Pinfu requires which condition?",
+      "Answers": [
+        
+        "Any open hand with triplets",
+        "Any hand with dora",
+        "Closed hand with all sequences and a non-value pair and two-sided wait"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong pinfu example hand",
+      "Subject": "Closed-Only Yaku"
+    },
+    {
+      "Statement": "Is Pinfu available when open?",
+      "Answers": [
+        "No",
+        "Yes, 1 han",
+        "Yes, 2 han"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong pinfu closed only",
+      "Subject": "Closed-Only Yaku"
+    },
+    {
+      "Statement": "What is the han value of a triplet of your seat wind?",
+      "Answers": [
+       
+        "2 han",
+         "1 han",
+        "3 han"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong yakuhai seat wind triplet",
+      "Subject": "Yakuhai"
+    },
+    {
+      "Statement": "What is the han value of a triplet of the round wind?",
+      "Answers": [
+        
+        "2 han",
+        "None if open",
+        "1 han"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong yakuhai round wind triplet",
+      "Subject": "Yakuhai"
+    },
+    {
+      "Statement": "What is the han value of a triplet of any dragon (white/green/red)?",
+      "Answers": [
+        "1 han",
+        "2 han",
+        "3 han"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong yakuhai dragon triplet",
+      "Subject": "Yakuhai"
+    },
+    {
+      "Statement": "Chiitoitsu (Seven Pairs) is worth how many han?",
+      "Answers": [
+        
+        "1 han (open)",
+        "2 han (closed only)",
+        "3 han (any)"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong chiitoitsu seven pairs",
+      "Subject": "Special Hands"
+    },
+    {
+      "Statement": "Toitoi (All Triplets) is worth how many han?",
+      "Answers": [
+        
+        "1 han (closed only)",
+        "3 han (closed only)",
+        "2 han (open or closed)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong toitoi all triplets",
+      "Subject": "Open-Friendly Yaku"
+    },
+    {
+      "Statement": "What is 'Sanshoku Doujun'?",
+      "Answers": [
+        "Same sequence in all three suits",
+        "Three triplets of dragons",
+        "Three kans"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong sanshoku doujun 234",
+      "Subject": "Intermediate Yaku"
+    },
+    {
+      "Statement": "Sanshoku Doujun is how many han when open?",
+      "Answers": [
+        
+        "2 han open, 3 han closed",
+        "1 han open, 2 han closed",
+        "Always 2 han"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong sanshoku open vs closed",
+      "Subject": "Intermediate Yaku"
+    },
+    {
+      "Statement": "What is 'Ittsu' (Iiitsuu / Pure Straight)?",
+      "Answers": [
+        
+        "All triplets hand",
+        "Seven pairs hand",
+        "1-9 straight in one suit (1-2-3, 4-5-6, 7-8-9)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong ittsu 123 456 789",
+      "Subject": "Intermediate Yaku"
+    },
+    {
+      "Statement": "Ittsu is worth how many han when open?",
+      "Answers": [
+        "1 han open, 2 han closed",
+        "2 han open, 3 han closed",
+        "Only closed"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong ittsu open closed difference",
+      "Subject": "Intermediate Yaku"
+    },
+    {
+      "Statement": "What is 'Honitsu'?",
+      "Answers": [
+        
+        "All honors",
+        "One suit plus honors",
+        "All sequences"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong honitsu half flush",
+      "Subject": "Suit-Based Yaku"
+    },
+    {
+      "Statement": "Honitsu is worth how many han when open?",
+      "Answers": [
+        
+        "1 han open, 2 han closed",
+        "3 han open, 6 han closed",
+        "2 han open, 3 han closed"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong honitsu scoring open",
+      "Subject": "Suit-Based Yaku"
+    },
+    {
+      "Statement": "What is 'Chinitsu'?",
+      "Answers": [
+        "One suit only (no honors)",
+        "One suit plus honors",
+        "All triplets of honors"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong chinitsu full flush",
+      "Subject": "Suit-Based Yaku"
+    },
+    {
+      "Statement": "Chinitsu is worth how many han when open?",
+      "Answers": [
+        
+        "5 han open",
+        "5 han closed, 6 han closed is wrong → actually 5 closed, 6 is not standard",
+        "1 han only"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong chinitsu scoring",
+      "Subject": "Suit-Based Yaku"
+    },
+    {
+      "Statement": "How many han is a closed Chinitsu usually?",
+      "Answers": [
+        
+        "2 han",
+        "3 han",
+        "6 han (closed)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong chinitsu closed strong hand",
+      "Subject": "Suit-Based Yaku"
+    },
+    {
+      "Statement": "What is 'Dora'?",
+      "Answers": [
+        "Bonus tile that adds han but is not a yaku",
+        "Yaku that lets you riichi",
+        "Tile that ends the game"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong dora indicator bonus tile",
+      "Subject": "Dora & Bonuses"
+    },
+    {
+      "Statement": "Can dora alone make a hand winnable?",
+      "Answers": [
+        
+        "Yes, 1 dora = 1 yaku",
+        "No, dora is not a yaku",
+        "Yes, 2 dora = 2 yaku"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong dora does not make yaku",
+      "Subject": "Dora & Bonuses"
+    },
+    {
+      "Statement": "What is 'Ura-dora' (back dora)?",
+      "Answers": [
+        
+        "Bonus from open hand",
+        "Replacement tile for kan",
+        "Extra dora revealed after winning by riichi"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong ura dora under indicator",
+      "Subject": "Dora & Bonuses"
+    },
+    {
+      "Statement": "What is 'Kan-dora'?",
+      "Answers": [
+        "Extra dora indicator revealed when a kan is declared",
+        "Dora that only dealer can use",
+        "A yaku from having 4 of a kind"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong kan dora extra indicator",
+      "Subject": "Dora & Bonuses"
+    },
+    {
+      "Statement": "What is the minimum requirement to win in Riichi mahjong?",
+      "Answers": [
+        
+        "1 dora",
+        "1 yaku",
+        "At least 2 fu"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong minimum 1 yaku to win",
+      "Subject": "Basic Rules"
+    },
+    {
+      "Statement": "What is 'Menzen Tsumo' worth?",
+      "Answers": [
+       
+        "2 han always",
+        "1 han even if open",
+         "1 han if hand is closed and you win by self-draw"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong menzen tsumo closed self draw",
+      "Subject": "Closed-Only Yaku"
+    },
+    {
+      "Statement": "What is 'Iipeikou'?",
+      "Answers": [
+        "Two identical sequences in the same suit (closed only)",
+        "Two different sequences in the same suit (open)",
+        "Two triplets of dragons"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong iipeikou pure double sequence",
+      "Subject": "Closed-Only Yaku"
+    },
+    {
+      "Statement": "How many han is Iipeikou?",
+      "Answers": [
+       
+        "2 han open",
+         "1 han (closed only)",
+        "2 han closed"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong iipeikou value",
+      "Subject": "Closed-Only Yaku"
+    },
+    {
+      "Statement": "What is 'Ryanpeikou'?",
+      "Answers": [
+        
+        "Two dora indicators",
+        "Two triplets and two pairs",
+        "Two different iipeikou in one hand (closed)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong ryanpeikou double pure double sequence",
+      "Subject": "Advanced Yaku"
+    },
+    {
+      "Statement": "What is 'Sanankou'?",
+      "Answers": [
+        "Three concealed triplets",
+        "Three open triplets",
+        "Three kans"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong sanankou three concealed triplets",
+      "Subject": "Advanced Yaku"
+    },
+    {
+      "Statement": "What is 'Sanshoku Doukou'?",
+      "Answers": [
+        
+        "Three sequences in all suits",
+        "Three triplets of the same number in all three suits",
+        "Three dora"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong sanshoku doukou three triplets same number",
+      "Subject": "Advanced Yaku"
+    },
+    {
+      "Statement": "What is 'Shousangen' (Little Three Dragons)?",
+      "Answers": [
+        
+        "Three dragon triplets",
+        "One dragon triplet only",
+        "Two dragon triplets and one dragon pair"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong shousangen little three dragons",
+      "Subject": "Advanced Yaku"
+    },
+    {
+      "Statement": "What is 'Daisangen' (Big Three Dragons)?",
+      "Answers": [
+        "Three dragon triplets",
+        "Two dragon triplets and a pair",
+        "One dragon triplet"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong daisangen big three dragons",
+      "Subject": "Yakuman"
+    },
+    {
+      "Statement": "What is 'Kokushi Musou'?",
+      "Answers": [
+        
+        "All triplets",
+        "Thirteen orphans (1s, 9s, honors + one duplicate)",
+        "All sequences"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong kokushi musou thirteen orphans",
+      "Subject": "Yakuman"
+    },
+    {
+      "Statement": "What is 'Suu Ankou'?",
+      "Answers": [
+        
+        "Four kans",
+        "Four sequences",
+        "Four concealed triplets (yakuman if fully concealed)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong suuankou four concealed triplets",
+      "Subject": "Yakuman"
+    },
+    {
+      "Statement": "What is 'Chinroutou'?",
+      "Answers": [
+        "Hand of only 1s and 9s",
+        "Hand of only honors",
+        "Hand of only middles"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong chinroutou terminal hand",
+      "Subject": "Yakuman"
+    },
+    {
+      "Statement": "What is 'Tsuuiisou'?",
+      "Answers": [
+        
+        "Hand of only one suit",
+        "Hand of only honors",
+        "Hand of only sequences"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong tsuuiisou all honors hand",
+      "Subject": "Yakuman"
+    },
+    {
+      "Statement": "What is a 'Mangan' hand worth for a non-dealer tsumo (roughly)?",
+      "Answers": [
+        
+        "1000/2000 to others (total 4000)",
+        "4000 all",
+        "2000/4000 to others (total 8000)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong mangan tsumo payment",
+      "Subject": "Score Tiers"
+    },
+    {
+      "Statement": "What han total usually gives Mangan?",
+      "Answers": [
+        "5 han",
+        "3 han",
+        "2 han"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong 5 han mangan",
+      "Subject": "Score Tiers"
+    },
+    {
+      "Statement": "What is 'Haneman'?",
+      "Answers": [
+        
+        "5 han hand",
+        "6–7 han hand",
+        "8–10 han hand"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong haneman scoring tier",
+      "Subject": "Score Tiers"
+    },
+    {
+      "Statement": "What is 'Baiman'?",
+      "Answers": [
+       
+        "6–7 han hand",
+        "13 han hand",
+         "8–10 han hand"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong baiman scoring tier",
+      "Subject": "Score Tiers"
+    },
+    {
+      "Statement": "What is 'Sanbaiman'?",
+      "Answers": [
+        "11–12 han hand",
+        "8–10 han hand",
+        "6–7 han hand"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong sanbaiman scoring tier",
+      "Subject": "Score Tiers"
+    },
+    {
+      "Statement": "What is 'Yakuman'?",
+      "Answers": [
+        
+        "5 han hand",
+        "Top-scoring hand category (like Kokushi, Suuankou, Daisangen)",
+        "Any hand with dora"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong yakuman example hand",
+      "Subject": "Yakuman"
+    },
+    {
+      "Statement": "If you have Riichi (1), Tsumo (1), Pinfu (1), and 2 Dora, how many han total?",
+      "Answers": [
+        
+        "4 han → below mangan",
+        "3 han → not enough",
+        "5 han → Mangan"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "mahjong han counting example",
+      "Subject": "Han Counting"
+    },
+    {
+      "Statement": "Why can you not win with only Dora?",
+      "Answers": [
+        "Because Dora is not a yaku",
+        "Because Dora must be open",
+        "Because Dora gives no points"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "mahjong dora needs yaku",
+      "Subject": "Rules Clarification"
+    },
+    {
+      "Statement": "In an open hand with only Toitoi (all triplets), can you win?",
+      "Answers": [
+       
+        "No, triplets must be closed",
+         "Yes, Toitoi is valid open",
+        "No, needs Pinfu"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong toitoi open hand win",
+      "Subject": "Open-Friendly Yaku"
+    }
+  ]
+}

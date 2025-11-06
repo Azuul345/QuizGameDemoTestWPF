@@ -11,12 +11,7 @@ namespace QuizGame.Views
         public PlayQuizViewModel ViewModel { get; set; }
 
 
-        //public PLayQuizView()
-        //{
-        //    InitializeComponent();
-        //    ViewModel = new PlayQuizViewModel();
-        //    DataContext = ViewModel;
-        //}
+
         public PLayQuizView(PlayQuizViewModel vm)
         {
             InitializeComponent();

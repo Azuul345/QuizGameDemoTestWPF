@@ -9,10 +9,10 @@ namespace QuizGame.Views
     /// </summary>
     public partial class EditView : UserControl
     {
-        private List<QuizDto> _all = new List<QuizDto>(); // ? 
+        private List<Quiz> _all = new List<Quiz>(); // ? 
         private Quiz _runtimeQuiz;
-        private List<QuestionDto> _editableQuestions = new List<QuestionDto>();
-        private QuizDto _current;                 // selected quiz
+        private List<Question> _editableQuestions = new List<Question>();
+        private Quiz _current;                 // selected quiz
         private int _selectedIndex = -1;          // selected question index
 
         public EditView()
@@ -27,12 +27,15 @@ namespace QuizGame.Views
 
             _all = await QuizStorage.LoadAllAsync();
             QuizPicker.ItemsSource = _all;
-            if (QuizPicker.Items.Count > 0) QuizPicker.SelectedIndex = 0;
+            if (QuizPicker.Items.Count > 0)
+            {
+                QuizPicker.SelectedIndex = 0;
+            }
         }
 
         private void QuizPicker_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (QuizPicker.SelectedItem is QuizDto dto)
+            if (QuizPicker.SelectedItem is Quiz dto)
             {
                 _current = dto;
 
@@ -47,7 +50,7 @@ namespace QuizGame.Views
         }
         private void AddQuestion_Click(object sender, RoutedEventArgs e)
         {
-            // read inputs without ?: or ??
+
             string s;
             if (StatementInput.Text == null)
             {
@@ -104,7 +107,7 @@ namespace QuizGame.Views
                 if (image.Length == 0) image = null;
             }
 
-            _editableQuestions.Add(new QuestionDto
+            _editableQuestions.Add(new Question
             {
                 Statement = s,
                 Answers = new[] { a0, a1, a2 },
@@ -120,7 +123,10 @@ namespace QuizGame.Views
         private void QuestionsList_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             _selectedIndex = QuestionsList.SelectedIndex;
-            if (_selectedIndex < 0) { ClearForm(); return; }
+            if (_selectedIndex < 0)
+            {
+                ClearForm(); return;
+            }
 
             var q = _editableQuestions[_selectedIndex];
             StatementInput.Text = q.Statement;
@@ -167,7 +173,7 @@ namespace QuizGame.Views
             string subject = GetTrimOrNull(SubjectInput);
             string image = GetTrimOrNull(ImageInput);
 
-            // update dto
+
             var q = _editableQuestions[_selectedIndex];
             q.Statement = statement;
             q.Answers = new[] { a0, a1, a2 };
@@ -191,19 +197,17 @@ namespace QuizGame.Views
                 return;
             }
 
-            //_editableQuestions.RemoveAt(_selectedIndex);
-            //QuestionsList.Items.Refresh();
+
 
             if (_runtimeQuiz != null)
             {
-                _runtimeQuiz.RemoveQuestion(_selectedIndex); // ADDED: use your method
+                _runtimeQuiz.RemoveQuestion(_selectedIndex);
 
-                // ADDED: rebuild editable list from runtime quiz after removal
                 _editableQuestions.Clear();
                 for (int i = 0; i < _runtimeQuiz.Questions.Count; i++)
                 {
                     var rq = _runtimeQuiz.Questions[i];
-                    var dto = new QuestionDto();
+                    var dto = new Question();
                     dto.Statement = rq.Statement;
 
                     // copy three answers safely
@@ -243,12 +247,11 @@ namespace QuizGame.Views
             if (_current == null) return;
 
             // allow title change in picker
-            if (QuizPicker.SelectedItem is QuizDto dto)
+            if (QuizPicker.SelectedItem is Quiz dto)
             {
                 _current.Title = dto.Title; // picker displays Title; keep as-is
 
             }
-            //_current.Questions = _editableQuestions.ToArray();
             _current.Questions = _editableQuestions.ToList();
             await QuizStorage.SaveAsync(_current);
             MessageBox.Show("Quiz saved.");
@@ -324,7 +327,7 @@ namespace QuizGame.Views
             for (int i = 0; i < _editableQuestions.Count; i++)
             {
                 var d = _editableQuestions[i];
-                var rq = new Question(d.Statement, d.CorrectAnswer, d.Answers);
+                var rq = new Question(d.Statement, d.CorrectAnswer, d.Answers); //had to keep constructor for this piece of code 
 
                 if (d.ImagePath == null) rq.ImagePath = null;
                 else rq.ImagePath = d.ImagePath;

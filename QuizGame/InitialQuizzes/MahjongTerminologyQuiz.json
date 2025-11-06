@@ -1,0 +1,401 @@
+
+{
+  "Title": "Riichi Mahjong Terminology",
+  "Questions": [
+    {
+      "Statement": "What does 'Riichi' mean in Riichi mahjong?",
+      "Answers": [
+        "Declaring ready with a fully closed hand",
+        "Calling to make an open meld",
+        "Declaring a draw"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "RiichiDeclaration.jpg",
+      "Subject": "Core Terms"
+    },
+    {
+      "Statement": "What is 'Tsumo'?",
+      "Answers": [
+        "Winning on another player's discard",
+        "Winning on your own draw",
+        "Declaring a closed kan"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "tsumo-mahjong.png",
+      "Subject": "Win Types"
+    },
+    {
+      "Statement": "What is 'Ron'?",
+      "Answers": [
+        
+        "Discarding a dangerous tile",
+        "Skippable bonus tile",
+        "Winning on someone else's discard"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "roncall.png",
+      "Subject": "Win Types"
+    },
+    {
+      "Statement": "What does 'Pon' do?",
+      "Answers": [
+        "Calls a triplet from a discard",
+        "Calls a sequence from left player",
+        "Declares riichi"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "pon.png",
+      "Subject": "Tile Actions"
+    },
+    {
+      "Statement": "What does 'Chi' do?",
+      "Answers": [
+        
+        "Calls a sequence from any player",
+        "Calls a sequence from the player on your left",
+        "Calls a triplet from the player on your right"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "chi.jpg",
+      "Subject": "Tile Actions"
+    },
+    {
+      "Statement": "What is a 'Kan'?",
+      "Answers": [
+        
+        "Declaring riichi with dora",
+        "Skipping your turn",
+        "Making four of a kind"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "kan.jpg",
+      "Subject": "Tile Actions"
+    },
+    {
+      "Statement": "What is the 'Dora indicator'?",
+      "Answers": [
+        "A revealed tile that tells which tiles are bonus",
+        "A tile that must be discarded first",
+        "A tile that ends the round immediately"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "dora.jpg",
+      "Subject": "Scoring Terms"
+    },
+    {
+      "Statement": "What are 'Red Fives' (Aka Dora)?",
+      "Answers": [
+        
+        "Tiles that cannot be discarded",
+        "Bonus 5-tiles worth +1 han each",
+        "Tiles that act like dragons"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "redfive.jpg",
+      "Subject": "Scoring Terms"
+    },
+    {
+      "Statement": "What is 'Menzen' or 'Closed'?",
+      "Answers": [
+        
+        "A hand with only sequences",
+        "A hand won by ron",
+        "A hand with no calls (no chi/pon/kan from others)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "closehand.png",
+      "Subject": "Hand State"
+    },
+    {
+      "Statement": "What is 'Open hand'?",
+      "Answers": [
+        "A hand that has called at least one tile",
+        "A hand that has declared riichi",
+        "A hand with only dora"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "openhand.jpg",
+      "Subject": "Hand State"
+    },
+    {
+      "Statement": "What does 'Tenpai' mean?",
+      "Answers": [
+        "A hand with no yaku",
+        "Ready hand, waiting for 1 tile to win",
+        "A hand with only triplets"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "tenpai.jpg",
+      "Subject": "Progress State"
+    },
+    {
+      "Statement": "What does 'Noten' mean?",
+      "Answers": [
+        
+        "Hand has no dora",
+        "Hand has no sequences",
+        "Hand is not ready"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "noten.jpg",
+      "Subject": "Progress State"
+    },
+    {
+      "Statement": "What is 'Furiten'?",
+      "Answers": [
+        "You cannot ron on discards because you have discarded your winning tile",
+        "You cannot tsumo until next round",
+        "You must discard honors first"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "furiten.png",
+      "Subject": "Restrictions"
+    },
+    {
+      "Statement": "What is 'Dealer' (East / Ton)?",
+      "Answers": [
+        
+        "The player who must discard first and cannot win",
+        "The player whose turn order starts the round and scores more on winning",
+        "The player who reveals dora every turn"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "east.jpg",
+      "Subject": "Table Roles"
+    },
+    {
+      "Statement": "What is 'Round Wind'?",
+      "Answers": [
+        
+        "The wind only you have",
+        "A bonus tile that replaces dragons",
+        "The wind for everyone this round (usually East at start)"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "roundwind.jpg",
+      "Subject": "Winds"
+    },
+    {
+      "Statement": "What is 'Seat Wind'?",
+      "Answers": [
+        "Your personal wind depending on where you sit",
+        "The wind for all players this round",
+        "The wind that cannot be used for yaku"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "seatwind.jpg",
+      "Subject": "Winds"
+    },
+    {
+      "Statement": "What is 'Yakuhai'?",
+      "Answers": [
+        
+        "Yaku from dora tiles",
+        "Yaku from triplets of dragons or value winds",
+        "Yaku from closed hands only"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "yakuhai.jpg",
+      "Subject": "Yaku Types"
+    },
+    {
+      "Statement": "What is the 'Dead Wall'?",
+      "Answers": [
+        "Tiles for the dealer only",
+        "Tiles to be discarded at game start",
+        "Tiles that cannot be drawn except for kan replacement and dora indicator"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "deadwall.jpg",
+      "Subject": "Table Layout"
+    },
+    {
+      "Statement": "What is a 'Meld'?",
+      "Answers": [
+        "A set of 3 or 4 tiles forming chi/pon/kan",
+        "A single honor tile",
+        "A discarded tile row"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "meld.jpg",
+      "Subject": "Basic Structures"
+    },
+    {
+      "Statement": "What is a 'Sequence' (Shuntsu)?",
+      "Answers": [
+        
+        "Three identical tiles",
+        "Three consecutive tiles in the same suit",
+        "Four identical tiles"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "shuntsu.png",
+      "Subject": "Basic Structures"
+    },
+    {
+      "Statement": "What is a 'Triplet' (Koutsu)?",
+      "Answers": [
+        
+        "Three consecutive tiles",
+        "Three identical tiles",
+        "Four identical tiles"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "koutsu.png",
+      "Subject": "Basic Structures"
+    },
+    {
+      "Statement": "What is a 'Quad' (Kantsu)?",
+      "Answers": [
+        
+        "Four consecutive tiles",
+        "Four random tiles",
+        "Four identical tiles"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "kantsu.jpg",
+      "Subject": "Basic Structures"
+    },
+    {
+      "Statement": "What is 'Chii Toitsu'?",
+      "Answers": [
+        "Seven pairs hand",
+        "All triplets hand",
+        "All sequences hand"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "chiitoitsu.jpg",
+      "Subject": "Hand Patterns"
+    },
+    {
+      "Statement": "What is 'Toitoi'?",
+      "Answers": [
+        
+        "All sequences hand",
+        "All triplets hand",
+        "All honors hand"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mahjong toitoi all triplets",
+      "Subject": "Hand Patterns"
+    },
+    {
+      "Statement": "What is 'Ippatsu'?",
+      "Answers": [
+        
+        "Winning with only one meld",
+        "Winning with only honors",
+        "Winning within one turn after declaring riichi without interruption"
+
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "ippatsu.png",
+      "Subject": "Bonus Terms"
+    },
+    {
+      "Statement": "What is 'Ura-dora'?",
+      "Answers": [
+        "Hidden dora revealed after a riichi win",
+        "A type of closed kan",
+        "A penalty for furiten"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "uradora.png",
+      "Subject": "Scoring Terms"
+    },
+    {
+      "Statement": "What is 'Mangan'?",
+      "Answers": [
+        
+        "A no-yaku hand",
+        "A fixed high score threshold (usually 5 han worth)",
+        "A special yakuman"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "mangan.png",
+      "Subject": "Scoring Levels"
+    },
+    {
+      "Statement": "What does 'Disregard (Pass / Skip)' do after a discard call popup?",
+      "Answers": [
+        
+        "You discard a random tile",
+        "You declare noten",
+        "You refuse to call chi/pon/ron and let play continue"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "skip.jpg",
+      "Subject": "Gameplay Phases"
+    },
+    {
+      "Statement": "What is 'Drawn Game' (Ryuu Kyoku)?",
+      "Answers": [
+        "Round ends without a winner",
+        "Round is replayed because dealer won",
+        "Round is skipped due to kan"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "draw.png",
+      "Subject": "Round End"
+    },
+    {
+      "Statement": "What is 'Oya'?",
+      "Answers": [
+        
+        "Japanese word for dragon",
+        "Japanese word for dealer (East)",
+        "Japanese word for dora"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "oya.jpg",
+      "Subject": "Japanese Terms"
+    },
+    {
+      "Statement": "What is 'Ko (child)' in table context?",
+      "Answers": [
+        
+        "Player to the right of dealer only",
+        "Player to the left of dealer only",
+        "Any non-dealer player"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "ko.jpg",
+      "Subject": "Table Roles"
+    },
+    {
+      "Statement": "What is 'Shanten' count?",
+      "Answers": [
+        "Number of tiles/steps away from tenpai",
+        "Number of dora you have",
+        "Number of melds in your hand"
+      ],
+      "CorrectAnswer": 0,
+      "ImagePath": "shanten.jpg",
+      "Subject": "Progress State"
+    },
+    {
+      "Statement": "What is 'Kabe' (wall) reading?",
+      "Answers": [
+        
+        "Counting dora indicators",
+        "Reading discarded tiles to know which numbers are dead",
+        "Declaring a closed kan"
+      ],
+      "CorrectAnswer": 1,
+      "ImagePath": "kabe.jpg",
+      "Subject": "Reading Terms"
+    },
+    {
+      "Statement": "What is 'Suji'?",
+      "Answers": [
+        
+        "A hand of only honors",
+        "A bonus from riichi",
+        "Safety logic based on discards and tile lines"
+      ],
+      "CorrectAnswer": 2,
+      "ImagePath": "suji.jpg",
+      "Subject": "Reading Terms"
+    }
+  ]
+}
